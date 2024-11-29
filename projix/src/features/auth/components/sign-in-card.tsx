@@ -1,5 +1,6 @@
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { useForm } from "react-hook-form";
 
 import { DottedSperator } from "@/components/dotted-separator";
 import { Button } from "@/components/ui/button";
