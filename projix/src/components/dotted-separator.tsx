@@ -38,7 +38,7 @@ export const DottedSperator = ({
             ? `${parseInt(dotSize) + parseInt(gapSize)}px ${height}`
             : `${height} ${parseInt(dotSize) + parseInt(gapSize)}px`,
           backgroundRepeat: isHorizontal ? "repeat-x" : "repeat-y",
-          backgroundPosition: "center",
+          backgroundPosition: "center"
         }}
       />
     </div>
