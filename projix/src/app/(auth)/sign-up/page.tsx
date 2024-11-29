@@ -1,10 +1,10 @@
-import React from 'react'
+"use client";
 
-const SignUpPage
- = () => {
-  return (
-    <div>SignUpPage</div>
-  )
-}
+import { SignUpCard } from "@/features/auth/components/sign-up-card";
+import React from "react";
 
-export default SignUpPage
+const SignUpPage = () => {
+  return <SignUpCard />;
+};
+
+export default SignUpPage;
