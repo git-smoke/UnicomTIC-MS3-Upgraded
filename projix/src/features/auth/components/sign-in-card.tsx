@@ -1,4 +1,7 @@
-import { Card, CardHeader, CardTitle } from "@/components/ui/card";
+import { DottedSperator } from "@/components/dotted-separator";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
 
 export const SignInCard = () => {
   return (
@@ -7,8 +10,41 @@ export const SignInCard = () => {
         <CardTitle className="text-2xl">Welcome Back!</CardTitle>
       </CardHeader>
       <div className="px-7">
-        
+        <DottedSperator />
       </div>
+      <CardContent className="p-7">
+        <form action="" className="space-y-4">
+          <Input
+            required
+            type="email"
+            value={""}
+            onChange={() => {}}
+            placeholder="Enter email address"
+            disabled={false}
+          />
+          <Input
+            required
+            type="password"
+            value={""}
+            onChange={() => {}}
+            placeholder="Enter password"
+            disabled={false}
+            min={8}
+            max={256}
+          />
+          <Button disabled={false} size="lg" className="w-full">
+            Login
+          </Button>
+        </form>
+      </CardContent>
+      <div className="px-7">
+        <DottedSperator />
+      </div>
+      <CardContent className="p-7 flex flex-col gap-y-4">
+        <Button>
+            
+        </Button>
+      </CardContent>
     </Card>
   );
 };
