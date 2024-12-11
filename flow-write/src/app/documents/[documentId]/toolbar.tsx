@@ -68,7 +68,7 @@ const HeadingLevelButton = () => {
     for (let level = 1; level <= 5; level++) {
       if (editor?.isActive("heading", { level })) {
         return `Heading ${level}`;
-      }
+      } 
     }
     return "Normal Text";
   };
@@ -81,12 +81,27 @@ const HeadingLevelButton = () => {
             "h-7 min-w-7 shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm "
           )}
         >
-          <span className="truncate">
-            {editor?.getAttributes("textStyle").fontFamily || "Arial"}
-          </span>
+          <span className="truncate">{getCurrentHeading()}</span>
           <ChevronDownIcon className="ml-2 size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
+        {headings.map(({ label, value, fontSize }) => (
+          <button
+            key={value}
+            style={{ fontSize }}
+            className={cn(
+              "flex items-center gap-x-2 px-2 py-1  rounded-sm hover:bg-neutral-200/80",
+              (value === 0 && !editor?.isActive("heading")) ||
+                (editor?.isActive("heading", { level: value }) &&
+                  "bg-neutral-200/80")
+            )}
+          >
+            <span className="text-sm">{label}</span>
+          </button>
+        ))}
+        ;
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };
@@ -148,7 +163,7 @@ const FontFamilyButton = () => {
             )}
             style={{ fontFamily: value }}
           >
-            <span className="text-sm">{label}</span>
+            {label}
           </button>
         ))}
       </DropdownMenuContent>
@@ -266,7 +281,7 @@ const Toolbar = () => {
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       <FontFamilyButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: Heading */}
+      <HeadingLevelButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {/* TODO: FontSize */}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
