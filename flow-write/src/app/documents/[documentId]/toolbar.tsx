@@ -1,8 +1,10 @@
 "use client";
 
+import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
 import {
+  BoldIcon,
   LucideIcon,
   PrinterIcon,
   Redo2Icon,
@@ -72,7 +74,11 @@ const Toolbar = () => {
       },
     ],
     [
-      
+      {
+        label: "Bold",
+        icon: BoldIcon,
+        onClick: () => editor?.chain().focus().toggleBold().run(),
+      },
     ],
   ];
 
@@ -81,6 +87,13 @@ const Toolbar = () => {
       {sections[0].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
+      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      {/* TODO: FontFamily */}
+      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      {/* TODO: Heading */}
+      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      {/* TODO: FontSize */}
+      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
     </div>
   );
 };
