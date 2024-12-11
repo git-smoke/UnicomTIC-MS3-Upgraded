@@ -64,7 +64,31 @@ const HeadingLevelButton = () => {
     },
   ];
 
-  const getCurrentHeading = () => {};
+  const getCurrentHeading = () => {
+    for (let level = 1; level <= 5; level++) {
+      if (editor?.isActive("heading", { level })) {
+        return `Heading ${level}`;
+      }
+    }
+    return "Normal Text";
+  };
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          className={cn(
+            "h-7 min-w-7 shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm "
+          )}
+        >
+          <span className="truncate">
+            {editor?.getAttributes("textStyle").fontFamily || "Arial"}
+          </span>
+          <ChevronDownIcon className="ml-2 size-4 shrink-0" />
+        </button>
+      </DropdownMenuTrigger>
+    </DropdownMenu>
+  );
 };
 
 const FontFamilyButton = () => {
