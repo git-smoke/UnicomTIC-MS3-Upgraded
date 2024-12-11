@@ -77,6 +77,7 @@ const Toolbar = () => {
       {
         label: "Bold",
         icon: BoldIcon,
+        isActive: editor?.isActive("bold"),
         onClick: () => editor?.chain().focus().toggleBold().run(),
       },
     ],
@@ -94,6 +95,9 @@ const Toolbar = () => {
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {/* TODO: FontSize */}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      {sections[1].map((item) => (
+        <ToolbarButton key={item.label} {...item} />
+      ))}
     </div>
   );
 };
