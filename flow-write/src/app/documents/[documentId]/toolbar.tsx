@@ -31,8 +31,6 @@ const ToolbarButton = ({
 const Toolbar = () => {
   const { editor } = useEditorStore();
 
-  console.log({ editor });
-
   const sections: {
     label: string;
     icon: LucideIcon;
@@ -43,7 +41,7 @@ const Toolbar = () => {
       {
         label: "Undo",
         icon: Undo2Icon,
-        onClick: () => console.log("Undo Clicked"),
+        onClick: () => editor?.chain().focus().undo().run(),
       },
     ],
   ];
