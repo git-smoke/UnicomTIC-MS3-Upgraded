@@ -7,6 +7,7 @@ import {
   BoldIcon,
   ItalicIcon,
   LucideIcon,
+  MessageSquarePlusIcon,
   PrinterIcon,
   Redo2Icon,
   SpellCheckIcon,
@@ -92,7 +93,15 @@ const Toolbar = () => {
         label: "Underline",
         icon: UnderlineIcon,
         isActive: editor?.isActive("underline"),
-        onClick: () => editor?.chain().focus().toggleUnterline().run(),
+        onClick: () => editor?.chain().focus().toggleUnderline().run(),
+      },
+    ],
+    [
+      {
+        label: "Comment",
+        icon: MessageSquarePlusIcon,
+        onClick: () => console.log("TODO: comment"),
+        isActive: false, //TODO enable this functionality
       },
     ],
   ];
@@ -110,6 +119,17 @@ const Toolbar = () => {
       {/* TODO: FontSize */}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {sections[1].map((item) => (
+        <ToolbarButton key={item.label} {...item} />
+      ))}
+      {/* TODO: Text color */}
+      {/* TODO: Highlight color */}
+      <Separator orientation="vertical" className="h-6 bg-neutral-300" />
+      {/* TODO Link */}
+      {/* TODO Image*/}
+      {/* TODO Align*/}
+      {/* TODO Line Heigth*/}
+      {/* TODO List*/}
+      {sections[2].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
     </div>
