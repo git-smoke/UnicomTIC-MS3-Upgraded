@@ -6,10 +6,12 @@ import { useEditorStore } from "@/store/use-editor-store";
 import {
   BoldIcon,
   ItalicIcon,
+  ListTodoIcon,
   LucideIcon,
   MessageSquarePlusIcon,
   PrinterIcon,
   Redo2Icon,
+  RemoveFormattingIcon,
   SpellCheckIcon,
   UnderlineIcon,
   Undo2Icon,
@@ -102,6 +104,17 @@ const Toolbar = () => {
         icon: MessageSquarePlusIcon,
         onClick: () => console.log("TODO: comment"),
         isActive: false, //TODO enable this functionality
+      },
+      {
+        label: "List Todo",
+        icon: ListTodoIcon,
+        onClick: () => editor?.chain().focus().toggleTaskList().run(),
+        isActive: editor?.isActive("taskList"),
+      },
+      {
+        label: "Remove Formatting",
+        icon: RemoveFormattingIcon,
+        onClick: () => editor?.chain().focus().unsetAllMarks().run(),
       },
     ],
   ];
