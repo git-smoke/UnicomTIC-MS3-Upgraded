@@ -2,6 +2,7 @@
 
 import {
   DropdownMenu,
+  DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
@@ -60,6 +61,21 @@ const FontFamilyButton = () => {
           <ChevronDownIcon className="ml-2 size-4 shrink-0" />
         </button>
       </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
+        {fonts.map(({ label, value }) => (
+          <button
+            key={value}
+            className={cn(
+              "flex items-center gap-x-2 px-2 py-1  rounded-sm hover:bg-neutral-200/80",
+              editor?.getAttributes("textStyle").fontFamily === value &&
+                "bg-neutral-200/80"
+            )}
+            style={{ fontFamily: value }}
+          >
+            <span className="text-sm">{label}</span>
+          </button>
+        ))}
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };
