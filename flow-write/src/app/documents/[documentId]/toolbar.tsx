@@ -63,6 +63,8 @@ const HeadingLevelButton = () => {
       fontSize: "16px",
     },
   ];
+
+  const getCurrentHeading = () => {};
 };
 
 const FontFamilyButton = () => {
