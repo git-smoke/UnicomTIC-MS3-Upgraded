@@ -31,6 +31,12 @@ export const Editor = () => {
     onTransaction({ editor }) {
       setEditor(editor);
     },
+    onFocus({ editor }) {
+      setEditor(editor);
+    },
+    onBlur({ editor }) {
+      setEditor(editor);
+    },
     editorProps: {
       attributes: {
         style: "padding-left:56px; padding-right:56px;",
