@@ -24,6 +24,8 @@ import {
   Undo2Icon,
 } from "lucide-react";
 
+import {type Level} from "@tiptap/extension-heading"
+
 const HeadingLevelButton = () => {
   const { editor } = useEditorStore();
 
@@ -68,7 +70,7 @@ const HeadingLevelButton = () => {
     for (let level = 1; level <= 5; level++) {
       if (editor?.isActive("heading", { level })) {
         return `Heading ${level}`;
-      } 
+      }
     }
     return "Normal Text";
   };
@@ -90,6 +92,13 @@ const HeadingLevelButton = () => {
           <button
             key={value}
             style={{ fontSize }}
+            onClick={() => {
+              if (value === 0) {
+                editor?.chain().focus().setParagraph().run();
+              } else {
+                editor?.chain().focus().toggleHeading({ level: value as Level}).run();
+              }
+            }}
             className={cn(
               "flex items-center gap-x-2 px-2 py-1  rounded-sm hover:bg-neutral-200/80",
               (value === 0 && !editor?.isActive("heading")) ||
