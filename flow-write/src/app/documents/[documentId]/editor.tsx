@@ -37,6 +37,9 @@ export const Editor = () => {
     onBlur({ editor }) {
       setEditor(editor);
     },
+    onContentError({ editor }) {
+      setEditor(editor);
+    },
     editorProps: {
       attributes: {
         style: "padding-left:56px; padding-right:56px;",
