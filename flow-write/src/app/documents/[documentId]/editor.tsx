@@ -25,6 +25,9 @@ export const Editor = () => {
     onUpdate({ editor }) {
       setEditor(editor);
     },
+    onSelectionUpdate({ editor }) {
+      setEditor(editor);
+    },
     editorProps: {
       attributes: {
         style: "padding-left:56px; padding-right:56px;",
