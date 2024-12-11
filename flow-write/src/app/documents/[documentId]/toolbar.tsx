@@ -1,12 +1,16 @@
 "use client";
 
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
-import { Value } from "@radix-ui/react-select";
 
 import {
   BoldIcon,
+  ChevronDownIcon,
   ItalicIcon,
   ListTodoIcon,
   LucideIcon,
@@ -41,6 +45,23 @@ const FontFamilyButton = () => {
       value: "Verdana",
     },
   ];
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button
+          className={cn(
+            "h-7 w-[120px] shrink-0 flex items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm "
+          )}
+        >
+          <span className="truncate">
+            {editor?.getAttributes("textStyle").fontFamily || "Arial"}
+          </span>
+          <ChevronDownIcon className="ml-2 size-4 shrink-0" />
+        </button>
+      </DropdownMenuTrigger>
+    </DropdownMenu>
+  );
 };
 
 interface ToolbarButtonProps {
