@@ -24,8 +24,46 @@ import {
   Undo2Icon,
 } from "lucide-react";
 
+const HeadingLevelButton = () => {
+  const { editor } = useEditorStore();
 
+  const headings = [
+    {
+      label: "Normal Text",
+      value: 0,
+      fontSize: "16px",
+    },
+    {
+      label: "Heading 1",
+      value: 1,
+      fontSize: "32px",
+    },
 
+    {
+      label: "Heading 2",
+      value: 2,
+      fontSize: "24px",
+    },
+
+    {
+      label: "Heading 3",
+      value: 3,
+      fontSize: "20px",
+    },
+
+    {
+      label: "Heading 4",
+      value: 4,
+      fontSize: "18px",
+    },
+
+    {
+      label: "Heading 5",
+      value: 5,
+      fontSize: "16px",
+    },
+  ];
+};
 
 const FontFamilyButton = () => {
   const { editor } = useEditorStore();
