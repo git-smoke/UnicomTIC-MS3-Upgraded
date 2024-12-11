@@ -24,6 +24,9 @@ import {
   Undo2Icon,
 } from "lucide-react";
 
+
+
+
 const FontFamilyButton = () => {
   const { editor } = useEditorStore();
 
@@ -44,6 +47,14 @@ const FontFamilyButton = () => {
     {
       label: "Verdana",
       value: "Verdana",
+    },
+    {
+      label: "Inter",
+      value: "Inter",
+    },
+    {
+      label: "cursive",
+      value: "cursive",
     },
   ];
 
