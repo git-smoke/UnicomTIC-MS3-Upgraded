@@ -3,6 +3,8 @@
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
+import { Value } from "@radix-ui/react-select";
+
 import {
   BoldIcon,
   ItalicIcon,
@@ -16,6 +18,30 @@ import {
   UnderlineIcon,
   Undo2Icon,
 } from "lucide-react";
+
+const FontFamilyButton = () => {
+  const { editor } = useEditorStore();
+
+  const fonts = [
+    { label: "Arial", value: "Arial" },
+    {
+      label: "Times New Roman",
+      value: "Times New Roman",
+    },
+    {
+      label: "Courier New",
+      value: "Courier New",
+    },
+    {
+      label: "Georgia",
+      value: "Georgia",
+    },
+    {
+      label: "Verdana",
+      value: "Verdana",
+    },
+  ];
+};
 
 interface ToolbarButtonProps {
   onClick?: () => void;
