@@ -92,7 +92,7 @@ const Toolbar = () => {
         label: "Underline",
         icon: UnderlineIcon,
         isActive: editor?.isActive("underline"),
-        onClick: () => editor?.chain().focus().toggleUnderline().run(),
+        onClick: () => editor?.chain().focus().toggleUnterline().run(),
       },
     ],
   ];
