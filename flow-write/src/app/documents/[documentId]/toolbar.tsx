@@ -63,6 +63,10 @@ const FontSizeButton = () => {
     }
   }
 
+  const handleInputChange = () =>  {
+    
+  }
+
   return (
     <div>
       Font Size
