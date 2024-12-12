@@ -54,6 +54,8 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
+      Highlight,
+      Color,
       FontFamily,
       TextStyle,
       Underline,
