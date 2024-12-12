@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 
 import { type Level } from "@tiptap/extension-heading";
-import { type ColorResult, CirclePicker } from "react-color";
+import { type ColorResult, SketchPicker } from "react-color";
 
 
 const TextColorButton = () => {
@@ -40,14 +40,14 @@ const TextColorButton = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
+        <button className="h-5 min-w-7 shrink-0 flex flex-col items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
         >
-          <span className="text-xs">A</span>
+          <span className="text-xs" style={{ color: value }}>A</span>
           <div className="h-0.5 w-full" style={{ backgroundColor: value }} />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-2.5">
-        <CirclePicker color={value} onChange={onChange} />
+      <DropdownMenuContent className="p-0">
+        <SketchPicker color={value} onChange={onChange} />
       </DropdownMenuContent>
     </DropdownMenu>
   );
