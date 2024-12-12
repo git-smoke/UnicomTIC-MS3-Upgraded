@@ -16,7 +16,8 @@ import { FontFamily } from "@tiptap/extension-font-family";
 import { TextStyle } from "@tiptap/extension-text-style";
 import { Color } from "@tiptap/extension-color";
 import { Highlight } from "@tiptap/extension-highlight";
-import { Link } from "@tiptap/extension-link"
+import { Link } from "@tiptap/extension-link";
+import { TextAlign } from "@tiptap/extension-text-align"
 
 
 export const Editor = () => {
@@ -56,6 +57,7 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
+      TextAlign,
       Link.configure({
         openOnClick: false,
         autolink: true,
