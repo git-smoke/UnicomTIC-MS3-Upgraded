@@ -11,6 +11,10 @@ import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
 
 import {
+  AlignCenterIcon,
+  AlignJustifyIcon,
+  AlignLeftIcon,
+  AlignRightIcon,
   BoldIcon,
   ChevronDownIcon,
   HighlighterIcon,
@@ -40,22 +44,44 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "
 const AlignButton = () => {
   const { editor } = useEditorStore();
 
-  const value = editor?.getAttributes("highlight").color || "#ffffff"
-
-  const onChange = (color: ColorResult) => {
-    editor?.chain().focus().setHighlight({ color: color.hex }).run();
-  }
+  const alignments = [
+    {
+      label: "Align Left",
+      value: "left",
+      icon: AlignLeftIcon
+    },
+    {
+      label: "Align Center",
+      value: "center",
+      icon: AlignCenterIcon,
+    },
+    {
+      label: "Align Right",
+      value: "right",
+      icon: AlignRightIcon,
+    },
+    {
+      label: "Align Justify",
+      value: "justify",
+      icon: AlignJustifyIcon
+    }
+  ];
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <button className="h-5 min-w-7 shrink-0 flex flex-col items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
         >
-          <HighlighterIcon className="size-4" />
+          <AlignLeftIcon className="size-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-0">
-        <SketchPicker onChange={onChange} color={value} />
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
+        {alignments.map(({ label, value, icon: Icon }) => (
+          <button key={value} onClick={() => editor?.chain().focus().setTextAlign(value).run()}>
+            <Icon />
+            <span>{label}</span>
+          </button>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
