@@ -47,7 +47,7 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "
 const FontSizeButton = () => {
   const { editor } = useEditorStore();
 
-
+  const currentFontSize = editor?.getAttributes("textStyle").fontSize ? editor?.getAttributes("textStyle").fontSize.replace("px", "") : "16"
 
   return (
     <div>
