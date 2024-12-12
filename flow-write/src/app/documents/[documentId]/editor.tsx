@@ -17,6 +17,7 @@ import { TextStyle } from "@tiptap/extension-text-style";
 import { Color } from "@tiptap/extension-color";
 import { Highlight } from "@tiptap/extension-highlight";
 
+
 export const Editor = () => {
   const { setEditor } = useEditorStore();
 
@@ -54,10 +55,10 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
+      Color,
       Highlight.configure({
         multicolor: true,
       }),
-      Color,
       FontFamily,
       TextStyle,
       Underline,
@@ -71,20 +72,7 @@ export const Editor = () => {
       TaskList,
     ],
     content: `
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th colspan="3">Description</th>
-            </tr>
-            <tr>
-              <td>Cyndi Lauper</td>
-              <td>Singer</td>
-              <td>Songwriter</td>
-              <td>Actress</td>
-            </tr>
-          </tbody>
-        </table>
+        Hello !
       `,
   });
 
