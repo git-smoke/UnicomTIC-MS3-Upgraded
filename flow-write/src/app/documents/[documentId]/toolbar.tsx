@@ -51,6 +51,11 @@ const FontSizeButton = () => {
 
   const [fontSize, setFontSize] = useState(currentFontSize);
   const [inputValue, setInputValue] = useState(fontSize);
+  const [isEditing, setIsEditing] = useState(false);
+
+  const updateFontSize = () => {
+
+  }
 
   return (
     <div>
