@@ -41,6 +41,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
+
 const AlignButton = () => {
   const { editor } = useEditorStore();
 
@@ -77,9 +78,13 @@ const AlignButton = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
         {alignments.map(({ label, value, icon: Icon }) => (
-          <button key={value} onClick={() => editor?.chain().focus().setTextAlign(value).run()}>
-            <Icon />
-            <span>{label}</span>
+          <button key={value} onClick={() => editor?.chain().focus().setTextAlign(value).run()
+          } className={cn(
+            "flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
+            editor?.isActive({ textAlign: value }) && "bg-neutral-200/80"
+          )}>
+            <Icon className="size-4" />
+            <span className="text-sm">{label}</span>
           </button>
         ))}
       </DropdownMenuContent>
@@ -517,7 +522,7 @@ const Toolbar = () => {
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       <LinkButton />
       <ImageButton />
-      {/* TODO Align*/}
+      <AlignButton />
       {/* TODO Line Heigth*/}
       {/* TODO List*/}
       {sections[2].map((item) => (
