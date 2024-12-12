@@ -54,7 +54,9 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
-      Highlight,
+      Highlight.configure({
+        multicolor: true,
+      }),
       Color,
       FontFamily,
       TextStyle,
