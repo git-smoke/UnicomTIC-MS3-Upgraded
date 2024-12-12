@@ -53,8 +53,14 @@ const FontSizeButton = () => {
   const [inputValue, setInputValue] = useState(fontSize);
   const [isEditing, setIsEditing] = useState(false);
 
-  const updateFontSize = () => {
-
+  const updateFontSize = (newSize: string) => {
+    const size = parseInt(newSize);
+    if (!isNaN(size) && size > 0) {
+      editor?.chain().focus().setFontSize(`${size}px`).run();
+      setFontSize(newSize);
+      setInputValue(newSize);
+      setIsEditing(false)
+    }
   }
 
   return (
