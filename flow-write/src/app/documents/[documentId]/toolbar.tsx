@@ -43,6 +43,21 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
+
+const FontSizeButton = () => {
+  const { editor } = useEditorStore();
+
+
+
+  return (
+    <div>
+      Font Size
+    </div>
+  );
+}
+
+
+
 const ListButton = () => {
   const { editor } = useEditorStore();
 
@@ -555,7 +570,7 @@ const Toolbar = () => {
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       <HeadingLevelButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: FontSize */}
+      <FontSizeButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {sections[1].map((item) => (
         <ToolbarButton key={item.label} {...item} />
