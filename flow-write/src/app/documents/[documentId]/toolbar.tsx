@@ -49,6 +49,9 @@ const FontSizeButton = () => {
 
   const currentFontSize = editor?.getAttributes("textStyle").fontSize ? editor?.getAttributes("textStyle").fontSize.replace("px", "") : "16"
 
+  const [fontSize, setFontSize] = useState(currentFontSize);
+  const [inputValue, setInputValue] = useState(fontSize);
+
   return (
     <div>
       Font Size
