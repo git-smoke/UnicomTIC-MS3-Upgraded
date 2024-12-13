@@ -26,6 +26,7 @@ import {
   ListTodoIcon,
   LucideIcon,
   MessageSquarePlusIcon,
+  MinusIcon,
   PrinterIcon,
   Redo2Icon,
   RemoveFormattingIcon,
@@ -93,9 +94,11 @@ const FontSizeButton = () => {
   }
 
   return (
-    <div>
-      Font Size
-    </div>
+    <div className="flex items-center gap-x-0.5">
+      <button className="h-5 min-w-7 shrink-0 flex flex-col items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm">
+        <MinusIcon className="size-4" />
+      </button>
+    </div >
   );
 }
 
