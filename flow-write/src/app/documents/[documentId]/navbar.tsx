@@ -151,7 +151,7 @@ export const Navbar = () => {
                                                     ⌘B
                                                 </MenubarShortcut>
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => editor?.chain().focus().toggleItalic().run()}>
                                                 <BsTypeItalic className="size-4 mr-2" />
                                                 Italic<MenubarShortcut>
                                                     ⌘I
