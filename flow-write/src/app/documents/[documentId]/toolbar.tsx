@@ -66,6 +66,10 @@ const FontSizeButton = () => {
       setInputValue(newSize);
       setIsEditing(false);
     }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
   }
 
   return (
