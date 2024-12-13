@@ -80,6 +80,11 @@ const FontSizeButton = () => {
     }
   }
 
+  const increment = () => {
+    const newSize = parseInt(fontSize) + 1;
+    updateFontSize(newSize.toString());
+  }
+
   return (
     <div>
       Font Size
