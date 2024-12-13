@@ -92,11 +92,15 @@ export const Navbar = () => {
                                                 <GlobeIcon className="size-4 mr-2" />
                                                 HTMl
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={
+                                                () => {
+                                                    window.print()
+                                                }
+                                            }>
                                                 <BsFilePdf className="size-4 mr-2" />
                                                 PDF
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={onSaveText}>
                                                 <FileTextIcon className="size-4 mr-2" />
                                                 Text
                                             </MenubarItem>
