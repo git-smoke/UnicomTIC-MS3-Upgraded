@@ -115,13 +115,19 @@ export const Navbar = () => {
                                             >
                                                 1 x 1
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem
+                                                onClick={() => insertTable({ rows: 2, cols: 2, })}
+                                            >
                                                 2 x 2
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem
+                                                onClick={() => insertTable({ rows: 3, cols: 3, })}
+                                            >
                                                 3 x 3
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem
+                                                onClick={() => insertTable({ rows: 4, cols: 4, })}
+                                            >
                                                 4 x 4
                                             </MenubarItem>
                                         </MenubarSubContent>
