@@ -46,6 +46,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import React from 'react';
+import { BsTypeBold, BsTypeItalic, BsTypeUnderline } from "react-icons/bs";
 
 
 const LineHeightButton = () => {
@@ -634,19 +635,19 @@ const Toolbar = () => {
       [
         {
           label: "Bold",
-          icon: BoldIcon,
+          icon: BsTypeBold,
           isActive: editor?.isActive("bold"),
           onClick: () => editor?.chain().focus().toggleBold().run(),
         },
         {
           label: "Italic",
-          icon: ItalicIcon,
+          icon: BsTypeItalic,
           isActive: editor?.isActive("italic"),
           onClick: () => editor?.chain().focus().toggleItalic().run(),
         },
         {
           label: "Underline",
-          icon: UnderlineIcon,
+          icon: BsTypeUnderline,
           isActive: editor?.isActive("underline"),
           onClick: () => editor?.chain().focus().toggleUnderline().run(),
         },
