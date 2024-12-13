@@ -12,6 +12,8 @@ export const Navbar = () => {
 
     const { editor } = useEditorStore();
 
+    const insertTable = ({})
+
     return (
         <nav className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
