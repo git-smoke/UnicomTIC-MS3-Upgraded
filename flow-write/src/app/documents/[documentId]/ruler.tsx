@@ -1,3 +1,5 @@
+
+
 const markers = Array.from({ length: 83 }, (_, i) => i);
 
 export const Ruler = () => {
