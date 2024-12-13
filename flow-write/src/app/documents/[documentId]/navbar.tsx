@@ -157,7 +157,9 @@ export const Navbar = () => {
                                                     ⌘I
                                                 </MenubarShortcut>
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem
+                                                onClick={() => editor?.chain().focus().toggleUnderline().run()}
+                                            >
                                                 <BsTypeUnderline className="size-4 mr-2" />
                                                 Underline&nbsp;&nbsp;&nbsp;
                                                 <MenubarShortcut>
