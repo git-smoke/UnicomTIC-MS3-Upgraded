@@ -57,7 +57,6 @@ export const Editor = () => {
     },
     extensions: [
       StarterKit,
-      FontSizeExtension,
       TextAlign.configure({
         types: ["heading", "paragraph"]
       }),
@@ -71,6 +70,7 @@ export const Editor = () => {
         multicolor: true,
       }),
       FontFamily,
+      FontSizeExtension,
       TextStyle,
       Underline,
       Image,
