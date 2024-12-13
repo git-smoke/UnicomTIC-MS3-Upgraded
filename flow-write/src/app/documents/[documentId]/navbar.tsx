@@ -110,7 +110,9 @@ export const Navbar = () => {
                                             Table
                                         </MenubarSubTrigger>
                                         <MenubarSubContent>
-                                            <MenubarItem>
+                                            <MenubarItem
+                                                onClick={() => insertTable({ rows: 1, cols: 1, })}
+                                            >
                                                 1 x 1
                                             </MenubarItem>
                                             <MenubarItem>
