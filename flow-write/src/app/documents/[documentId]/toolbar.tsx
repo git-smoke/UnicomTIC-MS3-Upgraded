@@ -72,6 +72,10 @@ const FontSizeButton = () => {
     setInputValue(e.target.value);
   }
 
+  const handleInputBlur = () => {
+    updateFontSize(inputValue);
+  }
+
   return (
     <div>
       Font Size
