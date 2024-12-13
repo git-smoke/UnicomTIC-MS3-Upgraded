@@ -26,6 +26,18 @@ export const Navbar = () => {
         a.download = filename;
         a.click();
     }
+
+    const onSaveJSON = () => {
+        if (!editor) return;
+
+        const content = editor.getJSON();
+        const blob = new Blob([JSON.stringify(content)], {
+            type: "application/json",
+        })
+
+        onDownload(blob, `document.json`) //TODO: use document name
+    }
+
     return (
         <nav className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
