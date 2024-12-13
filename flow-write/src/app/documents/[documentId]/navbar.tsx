@@ -82,7 +82,9 @@ export const Navbar = () => {
                                             Save
                                         </MenubarSubTrigger>
                                         <MenubarSubContent>
-                                            <MenubarItem>
+                                            <MenubarItem
+                                                onClick={onSaveJSON}
+                                            >
                                                 <FileJsonIcon className="size-4 mr-2" />
                                                 JSON
                                             </MenubarItem>
