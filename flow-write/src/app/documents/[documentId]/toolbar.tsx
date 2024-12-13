@@ -84,7 +84,18 @@ const FontSizeButton = () => {
     }
   }
 
-  
+  const increment = () => {
+    const newSize = parseInt(fontSize) + 1;
+    updateFontSize(newSize.toString());
+  }
+
+  const decrement = () => {
+    const newSize = parseInt(fontSize) - 1;
+    if (newSize > 0) {
+      updateFontSize(newSize.toString());
+    }
+
+  }
 
   return (
     <div>
