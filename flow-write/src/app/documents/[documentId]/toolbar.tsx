@@ -76,6 +76,16 @@ const FontSizeButton = () => {
     updateFontSize(inputValue);
   }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      updateFontSize(inputValue);
+      editor?.commands.focus();
+    }
+  }
+
+  
+
   return (
     <div>
       Font Size
