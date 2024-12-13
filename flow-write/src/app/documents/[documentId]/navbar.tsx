@@ -145,7 +145,7 @@ export const Navbar = () => {
                                             Text
                                         </MenubarSubTrigger>
                                         <MenubarSubContent>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => editor?.chain().focus().toggleBold().run()}>
                                                 <BsTypeBold className="size-4 mr-2" />
                                                 Bold <MenubarShortcut>
                                                     ⌘B
