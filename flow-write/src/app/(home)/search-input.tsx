@@ -15,7 +15,8 @@ export const SearchInput = () => {
     }
 
     const handleClear = () => {
-
+        setValue("");
+        inputRef.current?.blur()
     }
 
     return (
@@ -39,6 +40,7 @@ export const SearchInput = () => {
                 {
                     value && (
                         <Button
+                            onClick={handleClear}
                             type="button"
                             variant="ghost"
                             size="icon"
