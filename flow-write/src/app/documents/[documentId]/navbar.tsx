@@ -19,6 +19,9 @@ export const Navbar = () => {
             .run()
     }
 
+    const onDownload = () => {
+
+    }
     return (
         <nav className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
