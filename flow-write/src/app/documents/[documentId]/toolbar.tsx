@@ -44,7 +44,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import * as React from 'react';
+import React from 'react';
 
 
 const FontSizeButton = () => {
