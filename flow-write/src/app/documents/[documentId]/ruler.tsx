@@ -1,8 +1,14 @@
+import { useState } from "react";
 import { FaCaretDown } from "react-icons/fa"
 
 const markers = Array.from({ length: 83 }, (_, i) => i);
 
 export const Ruler = () => {
+
+    const [leftMargin, setLeftMargin] = useState(56);
+    const [rightMargin, setRightMargin] = useState(56);
+
+
     return (
         <div className="h-6 border-b border-gray-300 flex items-end relative select-none print:hidden">
             <div
@@ -12,6 +18,13 @@ export const Ruler = () => {
                 <Marker
                     position={56}
                     isLeft={true}
+                    isDragging={false}
+                    onMouseDown={() => { }}
+                    onDoubleClick={() => { }}
+                />
+                <Marker
+                    position={56}
+                    isLeft={false}
                     isDragging={false}
                     onMouseDown={() => { }}
                     onDoubleClick={() => { }}
