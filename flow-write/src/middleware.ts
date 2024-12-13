@@ -10,6 +10,3 @@ export const config = {
     '/(api|trpc)(.*)',
   ],
 };
-
-
-//Its simply add clerk to your nextjs environment
