@@ -21,6 +21,10 @@ export const SearchInput = () => {
         inputRef.current?.blur()
     }
 
+    const handleSubmit = () => {
+
+    }
+
     return (
         <div className="flex-1 flex items-center justify-center">
             <form className="relative max-w-[720px] w-full">
