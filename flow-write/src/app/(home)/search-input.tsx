@@ -14,6 +14,10 @@ export const SearchInput = () => {
         setValue(e.target.value);
     }
 
+    const handleClear = () => {
+
+    }
+
     return (
         <div className="flex-1 flex items-center justify-center">
             <form className="relative max-w-[720px] w-full">
