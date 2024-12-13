@@ -45,3 +45,28 @@ export const Ruler = () => {
         </div>
     )
 }
+
+interface MarkerProps {
+    position: number;
+    isLeft: boolean;
+    isDragging: boolean;
+    onMouseDown: () => void;
+    onDoubleClick: () => void;
+}
+
+const Marker = ({
+    position,
+    isLeft,
+    isDragging,
+    onMouseDown,
+    onDoubleClick,
+}: MarkerProps) => {
+    <div
+        className="absolute top-0 w-4 h-full cursor-ew-resize z-[5] group -ml-2"
+        style={{ [isLeft ? "left" : "right"]: `${position}px` }}
+        onMouseDown={onMouseDown}
+        onDoubleClick={onDoubleClick}
+    >
+
+    </div>
+}
