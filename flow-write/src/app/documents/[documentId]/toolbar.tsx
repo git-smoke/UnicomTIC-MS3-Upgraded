@@ -42,6 +42,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import * as React from 'react';
 
 
 const FontSizeButton = () => {
@@ -69,6 +70,14 @@ const FontSizeButton = () => {
 
   const handleInputBlur = () => {
     updateFontSize(inputValue)
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      updateFontSize(inputValue);
+      editor?.commands.focus();
+    }
   }
 
   return (
