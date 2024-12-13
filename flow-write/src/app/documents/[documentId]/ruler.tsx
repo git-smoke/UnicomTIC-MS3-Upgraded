@@ -20,9 +20,37 @@ export const Ruler = () => {
         setIsDraggingRight(true);
     }
 
+    const handleMouseMove = (e: React.MouseEvent) => {
+        if ((isDraggingLeft || isDraggingRight) && rulerRef.current) {
+            const container = rulerRef.current.querySelector("#ruler-container");
+            if (container) {
+                const containerRect = container.getBoundingClientRect();
+                const relativeX = e.clientX - containerRect.left;
+                const rawPosition = Math.max(0, Math.min(816, relativeX))
+
+                if (isDraggingLeft) {
+                    const maxLeftPosition = 816 - rightMargin - 100;
+                    const newLeftPosition = Math.min(rawPosition, maxLeftPosition);
+                    setLeftMargin(newLeftPosition) //TODO: Make collaborative
+                } else if (isDraggingRight) {
+                    const maxRightPosition = 816 - (leftMargin + 100);
+                    const newRightPosition = Math.max(816 - rawPosition, 0);
+                    const constrainedRightPosition = Math.min(newRightPosition, maxRightPosition);
+                    setRightMargin(constrainedRightPosition)
+                }
+            }
+        }
+    }
+
+    
 
     return (
-        <div className="h-6 border-b border-gray-300 flex items-end relative select-none print:hidden">
+        <div
+            ref={rulerRef}
+            onMouseMove={handleMouseMove}
+            onMouseUp={() => { }}
+            onMouseLeave={() => { }}
+            className="h-6 border-b border-gray-300 flex items-end relative select-none print:hidden">
             <div
                 id="ruler-container"
                 className="max-w-[816px] mx-auto w-full h-full relative"
