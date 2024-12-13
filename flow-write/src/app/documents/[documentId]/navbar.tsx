@@ -88,7 +88,7 @@ export const Navbar = () => {
                                                 <FileJsonIcon className="size-4 mr-2" />
                                                 JSON
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={onSaveHTML}>
                                                 <GlobeIcon className="size-4 mr-2" />
                                                 HTMl
                                             </MenubarItem>
