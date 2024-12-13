@@ -47,6 +47,38 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "
 import React from 'react';
 
 
+const LineHeightButton = () => {
+  const { editor } = useEditorStore();
+
+  const alignments = [
+
+  ];
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <button className="h-5 min-w-7 shrink-0 flex flex-col items-center justify-between rounded-sm hover:bg-neutral-200/80 px-1.5 overflow-hidden text-sm"
+        >
+          <AlignLeftIcon className="size-4" />
+        </button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1">
+        {alignments.map(({ label, value, icon: Icon }) => (
+          <button key={value} onClick={() => editor?.chain().focus().setTextAlign(value).run()
+          } className={cn(
+            "flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-neutral-200/80",
+            editor?.isActive({ textAlign: value }) && "bg-neutral-200/80"
+          )}>
+            <Icon className="size-4" />
+            <span className="text-sm">{label}</span>
+          </button>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
+
 const FontSizeButton = () => {
   const { editor } = useEditorStore();
 
