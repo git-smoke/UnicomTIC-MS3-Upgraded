@@ -1,4 +1,4 @@
-
+import { FaCaretDown } from "react-icons/fa"
 
 const markers = Array.from({ length: 83 }, (_, i) => i);
 
@@ -69,6 +69,8 @@ const Marker = ({
         onMouseDown={onMouseDown}
         onDoubleClick={onDoubleClick}
     >
-
+        <FaCaretDown
+            className="absolute left-1/2 top-0 h-full fill-blue-500"
+        />
     </div>
 }
