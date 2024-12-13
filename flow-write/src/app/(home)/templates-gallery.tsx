@@ -1,6 +1,6 @@
 "use client"
 
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { templates } from "@/constants/templates";
 import { cn } from "@/lib/utils"
 
@@ -46,6 +46,8 @@ export const TemplatesGallery = () => {
                             </CarouselItem>
                         ))}
                     </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
                 </Carousel>
             </div>
         </div>
