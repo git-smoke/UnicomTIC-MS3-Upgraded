@@ -12,6 +12,7 @@ export const Navbar = () => {
                 <h3 className="text-xl">FloWrite</h3>
             </div>
             <SearchInput />
+            <div />
         </nav>
     )
 }
