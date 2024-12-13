@@ -166,7 +166,7 @@ export const Navbar = () => {
                                                     ⌘U
                                                 </MenubarShortcut>
                                             </MenubarItem>
-                                            <MenubarItem>
+                                            <MenubarItem onClick={() => editor?.chain().focus().toggleStrike().run()}>
                                                 <BsTypeStrikethrough className="size-4 mr-2" />
                                                 Strike <MenubarShortcut>
                                                     ⌘S
