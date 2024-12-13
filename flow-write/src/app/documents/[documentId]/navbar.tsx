@@ -12,7 +12,12 @@ export const Navbar = () => {
 
     const { editor } = useEditorStore();
 
-    const insertTable = ({})
+    const insertTable = ({ rows, cols }: { rows: number, cols: number }) => {
+        editor?.chain()
+            .focus()
+            .insertTable({ rows, cols, withHeaderRow: false })
+            .run()
+    }
 
     return (
         <nav className="flex items-center justify-between">
