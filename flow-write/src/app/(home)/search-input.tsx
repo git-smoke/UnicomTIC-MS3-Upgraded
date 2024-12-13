@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { SearchIcon } from "lucide-react"
+import { useState } from "react"
 
 export const SearchInput = () => {
+    const [] = useState();
 
-    
     return (
         <div className="flex-1 flex items-center justify-center">
             <form className="relative max-w-[720px] w-full">
