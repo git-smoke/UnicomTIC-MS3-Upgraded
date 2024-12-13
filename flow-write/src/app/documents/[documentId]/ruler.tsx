@@ -1,4 +1,4 @@
-
+const markers = Array.from({})
 
 export const Ruler = () => {
     return (
