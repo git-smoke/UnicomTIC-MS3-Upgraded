@@ -38,6 +38,17 @@ export const Navbar = () => {
         onDownload(blob, `document.json`) //TODO: use document name
     }
 
+    const onSaveHTML = () => {
+        if (!editor) return;
+
+        const content = editor.getHTML();
+        const blob = new Blob([content], {
+            type: "text/html",
+        })
+
+        onDownload(blob, `document.html`) //TODO: use document name
+    }
+
     return (
         <nav className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
