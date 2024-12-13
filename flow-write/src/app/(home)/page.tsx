@@ -10,9 +10,7 @@ const Home = () => {
         <Navbar />
       </div>
       <div className="mt-16">
-        <Button variant={"destructive"}>
-          <Link href="/documents/76176"> Click Me</Link>
-        </Button>
+        <TemplateGallery />
       </div>
     </div>
   );
