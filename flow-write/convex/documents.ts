@@ -22,8 +22,11 @@ export const create = mutation({
 })
 
 export const get = query({
-    args: { paginationOpts: paginationOptsValidator },
+    args: { paginationOpts: paginationOptsValidator, search: v.optional(v.string()) },
     handler: async (ctx, args) => {
+
+        
+
         return await ctx.db.query("documents").paginate(args.paginationOpts);
         // do something with `tasks`
     },
