@@ -7,6 +7,7 @@ import { useMutation } from "convex/react";
 import { useRouter } from "next/navigation";
 import { api } from "../../../convex/_generated/api";
 import { useState } from "react";
+import { title } from 'process';
 
 
 
@@ -16,7 +17,16 @@ export const TemplatesGallery = () => {
     const create = useMutation(api.documents.create);
     const [isCreating, setIsCreating] = useState(false);
 
-    const onTemplateClick = () => {}
+    const onTemplateClick = (title: string, initialContent: string) => {
+        setIsCreating(true);
+        create({ title, initialContent })
+            .then((documentId) => {
+                router.push(`/documents/${documentId}`)
+            })
+            .finally(() => {
+                setIsCreating(false);
+            })
+    }
 
     return (
         <div className="bg-[#f1f3f4]">
@@ -39,7 +49,7 @@ export const TemplatesGallery = () => {
                                 >
                                     <button
                                         disabled={isCreating}
-                                        onClick={() => { }}
+                                        onClick={() => onTemplateClick(template.label, "")} //TODO: Add proper inital content
                                         style={{
                                             backgroundImage: `url(${template.imageUrl})`,
                                             backgroundSize: "cover",
