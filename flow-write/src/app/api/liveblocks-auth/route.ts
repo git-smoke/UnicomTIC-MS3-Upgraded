@@ -1,10 +1,8 @@
 
 import { ConvexHttpClient } from "convex/browser"
 import { auth, currentUser } from "@clerk/nextjs/server"
-import { getById } from '../../../../convex/documents';
 import { api } from "../../../../convex/_generated/api";
 import { Liveblocks } from "@liveblocks/node";
-import { Color } from '@tiptap/extension-color';
 
 
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!)
