@@ -32,10 +32,10 @@ export const DocumentsTable = ({
                                 <TableHead>
                                     &nbsp;
                                 </TableHead>
-                                <TableHead>
+                                <TableHead className="hidden md:table-cell">
                                     Shared
                                 </TableHead>
-                                <TableHead>
+                                <TableHead className="hidden md:table-cell">
                                     Created at
                                 </TableHead>
 
