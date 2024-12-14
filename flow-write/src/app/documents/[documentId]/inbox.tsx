@@ -1,10 +1,11 @@
 "use client"
 import { BellIcon } from "lucide-react"
 import { InboxNotification, InboxNotificationList } from "@liveblocks/react-ui"
-import { useInboxNotifications } from "@liveblocks/react"
+import { useInboxNotifications } from "@liveblocks/react/suspense"
 import { ClientSideSuspense } from "@liveblocks/react"
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
+import { DropdownMenuContent } from "@radix-ui/react-dropdown-menu"
 
 export const Inbox = () => {
     return (
@@ -27,8 +28,24 @@ const InboxMenu = () => {
                     size="icon"
                 >
                     <BellIcon className="size-5" />
+                    {inboxNotifications?.length > 0 && (
+                        <span className="absolute -top-1 -right-1 size-4 rounded-full bg-sky-500 text-xs text-white flex items-center justify-center">
+                            {inboxNotifications.length}
+                        </span>
+                    )}
                 </Button>
             </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-auto">
+                {inboxNotifications.length > 0 ? (
+                    <InboxNotificationList>
+
+                    </InboxNotificationList>
+                ) : (
+                    <div className="p-2 w-[400px] text-center text-sm text-muted-foreground">
+                        No notifiations
+                    </div>
+                )}
+            </DropdownMenuContent>
 
         </DropdownMenu>
     );
