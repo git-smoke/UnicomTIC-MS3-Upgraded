@@ -9,6 +9,7 @@ import { BsFilePdf, BsTypeBold, BsTypeItalic, BsTypeStrikethrough, BsTypeUnderli
 import { useEditorStore } from "@/store/use-editor-store"
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
 import { Avatars } from "./avatars"
+import { Inbox } from "./inbox"
 
 export const Navbar = () => {
 
@@ -237,6 +238,7 @@ export const Navbar = () => {
             </div>
             <div className="flex gap-3 items-center pl-6">
                 <Avatars />
+                <Inbox />
                 <OrganizationSwitcher
                     afterCreateOrganizationUrl="/"
                     afterLeaveOrganizationUrl="/"
