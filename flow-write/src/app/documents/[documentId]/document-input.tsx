@@ -1,5 +1,8 @@
 import { BsCloudCheck } from "react-icons/bs"
 
+interface  DocumentInputProps{
+    
+}
 
 export const DocumentInput = () => {
     return (
