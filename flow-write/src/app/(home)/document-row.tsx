@@ -4,3 +4,5 @@ import { Doc } from "../../../convex/_generated/dataModel";
 interface DocumentRowProps {
     document: Doc<"documents">;
 }
+
+export const DocumentRow = () => {}
