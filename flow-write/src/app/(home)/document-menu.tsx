@@ -20,7 +20,10 @@ export const DocumentMenu = ({ documentId, title, onNewTab }: DocumentMenuProps)
             </DropdownMenuTrigger>
             <DropdownMenuContent>
                 <RemoveDialog documentId={documentId}>
-                    <DropdownMenuItem>
+                    <DropdownMenuItem
+                        onSelect={(e) => e.preventDefault()}
+                        onClick={(e) => e.stopPropagation()}
+                    >
                         <TrashIcon className="size-4 mr-2" />
                         Remove
                     </DropdownMenuItem>
