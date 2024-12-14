@@ -5,7 +5,7 @@ import Toolbar from "./toolbar";
 
 const DocumentPage = () => {
 
-  throw new Error("Oops");
+  throw new Error("Please Go Back !");
 
   return (
     <div className="min-h-screen bg-[#fafbfd]">
