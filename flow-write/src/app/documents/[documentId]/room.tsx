@@ -8,7 +8,6 @@ import {
 } from "@liveblocks/react/suspense";
 import { useParams } from "next/navigation";
 
-
 export function Room({ children }: { children: ReactNode }) {
 
     const params = useParams();
