@@ -10,15 +10,35 @@ import { useEditorStore } from "@/store/use-editor-store"
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
 import { Avatars } from "./avatars"
 import { Inbox } from "./inbox"
-import { Doc } from "../../../../convex/_generated/dataModel"
+import { Doc } from '../../../../convex/_generated/dataModel';
+import { useMutation } from "convex/react"
+import { api } from "../../../../convex/_generated/api"
+import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 interface NavbarProps {
     data: Doc<"documents">;
 }
 
 export const Navbar = ({ data }: NavbarProps) => {
+    const router = useRouter();
 
     const { editor } = useEditorStore();
+
+
+    const mutation = useMutation(api.documents.create)
+
+    const onNewDocument = () => {
+        mutation({
+            title: "Untitled document",
+            initialContent: ""
+        })
+            .catch(() => toast.error("Something went wrong"))
+            .then((id) => {
+                toast.success("Document created");
+                router.push(`/documents/${id}`);
+            })
+    }
 
     const insertTable = ({ rows, cols }: { rows: number, cols: number }) => {
         editor?.chain()
@@ -43,7 +63,7 @@ export const Navbar = ({ data }: NavbarProps) => {
             type: "application/json",
         })
 
-        onDownload(blob, `${data.title}.json`) //TODO: use document name
+        onDownload(blob, `${data.title}.json`)
     }
 
     const onSaveHTML = () => {
@@ -54,7 +74,7 @@ export const Navbar = ({ data }: NavbarProps) => {
             type: "text/html",
         })
 
-        onDownload(blob, `${data.title}.html`) //TODO: use document name
+        onDownload(blob, `${data.title}.html`)
     }
 
     const onSaveText = () => {
@@ -65,7 +85,7 @@ export const Navbar = ({ data }: NavbarProps) => {
             type: "text/plain",
         })
 
-        onDownload(blob, `${data.title}.txt`) //TODO: use document name
+        onDownload(blob, `${data.title}.txt`)
     }
 
     return (
@@ -114,7 +134,7 @@ export const Navbar = ({ data }: NavbarProps) => {
                                             </MenubarItem>
                                         </MenubarSubContent>
                                     </MenubarSub>
-                                    <MenubarItem>
+                                    <MenubarItem onClick={onNewDocument}>
                                         <FilePlusIcon className="size-4 mr-2" />
                                         New Document
                                     </MenubarItem>
