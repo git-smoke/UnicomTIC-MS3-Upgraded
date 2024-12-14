@@ -116,9 +116,10 @@ export const updateById = mutation({
         const isOwner = document.ownerId === user.subject;
         const isOrganizationMember = document.organizationId === organizationId;
 
-        if (!isOwner) {
+        if (!isOwner && !isOrganizationMember) {
             throw new ConvexError("Unauthorized");
         }
+
 
         return await ctx.db.patch(args.id, { title: args.title })
     }
