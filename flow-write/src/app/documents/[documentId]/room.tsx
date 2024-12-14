@@ -84,7 +84,9 @@ export const Room: React.FC<{ children: ReactNode }> = ({ children }) => {
             resolveMentionSuggestions={resolveMentionSuggestions}
             resolveRoomsInfo={resolveRoomsInfo}
         >
-            <RoomProvider id={documentId}>
+            <RoomProvider id={documentId} initialStorage={{
+                leftMargin: 56, rightMargin: 56
+            }}>
                 <ClientSideSuspense fallback={<FullscreenLoader label="Room loading..." />}>
                     {children}
                 </ClientSideSuspense>
