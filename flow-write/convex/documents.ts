@@ -31,6 +31,15 @@ export const get = query({
             throw new ConvexError("Unauthorized");
         }
 
+        const organizationId = (user.organization_id ?? undefined) as | string | undefined;
+
+        if (search && organizationId) {
+            return await ctx.db
+                .query("documents")
+                .withSearchIndex("search_title", (q) =>
+                    q.search("title", search).eq("organizationId", organizationId)).paginate(paginationOpts)
+        }
+
         if (search) {
             return await ctx.db
                 .query("documents")
