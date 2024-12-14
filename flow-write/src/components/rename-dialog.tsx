@@ -7,6 +7,7 @@ import { Input } from './ui/input';
 import { Button } from './ui/button';
 
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+import { toast } from 'sonner';
 
 
 
@@ -31,6 +32,7 @@ export const RenameDialog = ({ documentId, initialTitle, children }: RenameDialo
 
         update({ id: documentId, title: title.trim() || "Untitled" })
             .then(() => setOpen(false))
+            .then(() => toast.success("updated successfully"))
             .finally(() => {
                 setIsUpdating(false);
             })
