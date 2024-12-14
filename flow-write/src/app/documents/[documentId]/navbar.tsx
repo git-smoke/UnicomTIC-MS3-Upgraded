@@ -8,6 +8,7 @@ import { BoldIcon, FileIcon, FileJsonIcon, FilePenIcon, FilePlusIcon, FileTextIc
 import { BsFilePdf, BsTypeBold, BsTypeItalic, BsTypeStrikethrough, BsTypeUnderline } from "react-icons/bs"
 import { useEditorStore } from "@/store/use-editor-store"
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
+import { Avatars } from "./avatars"
 
 export const Navbar = () => {
 
