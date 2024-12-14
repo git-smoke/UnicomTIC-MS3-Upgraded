@@ -10,6 +10,7 @@ import { useEditorStore } from "@/store/use-editor-store"
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
 import { Avatars } from "./avatars"
 import { Inbox } from "./inbox"
+import { Separator } from "@/components/ui/separator"
 
 export const Navbar = () => {
 

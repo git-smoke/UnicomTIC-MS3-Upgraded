@@ -10,6 +10,7 @@ import {
     DropdownMenuContent
 } from "@/components/ui/dropdown-menu"
 import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
 
 const NotificationBadge: React.FC<{ count: number }> = ({ count }) => (
     <span className="absolute -top-1 -right-1 size-4 rounded-full bg-sky-500 text-xs text-white flex items-center justify-center">
@@ -28,38 +29,56 @@ const InboxMenu: React.FC = () => {
     const hasNotifications = inboxNotifications.length > 0;
 
     return (
-        <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button
-                    variant="ghost"
-                    className="relative"
-                    size="icon"
-                >
-                    <BellIcon className="size-5" />
-                    {hasNotifications && <NotificationBadge count={inboxNotifications.length} />}
-                </Button>
-            </DropdownMenuTrigger>
+        <>
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <Button
+                        variant="ghost"
+                        className="relative"
+                        size="icon"
+                    >
+                        <BellIcon className="size-5" />
+                        {hasNotifications && <NotificationBadge count={inboxNotifications.length} />}
+                    </Button>
+                </DropdownMenuTrigger>
 
-            <DropdownMenuContent align="end" className="w-auto">
-                {hasNotifications ? (
-                    <InboxNotificationList>
-                        {inboxNotifications.map((notification) => (
-                            <InboxNotification
-                                key={notification.id}
-                                inboxNotification={notification}
-                            />
-                        ))}
-                    </InboxNotificationList>
-                ) : (
-                    <EmptyNotificationState />
-                )}
-            </DropdownMenuContent>
-        </DropdownMenu>
+                <DropdownMenuContent align="end" className="w-auto">
+                    {hasNotifications ? (
+                        <InboxNotificationList>
+                            {inboxNotifications.map((notification) => (
+                                <InboxNotification
+                                    key={notification.id}
+                                    inboxNotification={notification}
+                                />
+                            ))}
+                        </InboxNotificationList>
+                    ) : (
+                        <EmptyNotificationState />
+                    )}
+                </DropdownMenuContent>
+            </DropdownMenu>
+            <Separator orientation="vertical" className="h-5" />
+        </>
     );
 }
 
 export const Inbox: React.FC = () => (
-    <ClientSideSuspense fallback={null}>
+    <ClientSideSuspense fallback={
+        <>
+            <Button
+                variant="ghost"
+                disabled
+                className="relative"
+                size="icon"
+            >
+                <BellIcon className="size-5" />
+            </Button>
+            <Separator orientation="vertical" className="h-6" />
+        </>
+
+
+
+    }>
         <InboxMenu />
     </ClientSideSuspense>
 );
