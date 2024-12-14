@@ -10,8 +10,13 @@ import { useEditorStore } from "@/store/use-editor-store"
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
 import { Avatars } from "./avatars"
 import { Inbox } from "./inbox"
+import { Doc } from "../../../../convex/_generated/dataModel"
 
-export const Navbar = () => {
+interface NavbarProps {
+    data: Doc<"documents">;
+}
+
+export const Navbar = ({ data }: NavbarProps) => {
 
     const { editor } = useEditorStore();
 
@@ -38,7 +43,7 @@ export const Navbar = () => {
             type: "application/json",
         })
 
-        onDownload(blob, `document.json`) //TODO: use document name
+        onDownload(blob, `${data.title}.json`) //TODO: use document name
     }
 
     const onSaveHTML = () => {
@@ -49,7 +54,7 @@ export const Navbar = () => {
             type: "text/html",
         })
 
-        onDownload(blob, `document.html`) //TODO: use document name
+        onDownload(blob, `${data.title}.html`) //TODO: use document name
     }
 
     const onSaveText = () => {
@@ -60,7 +65,7 @@ export const Navbar = () => {
             type: "text/plain",
         })
 
-        onDownload(blob, `document.txt`) //TODO: use document name
+        onDownload(blob, `${data.title}.txt`) //TODO: use document name
     }
 
     return (
