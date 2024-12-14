@@ -11,7 +11,6 @@ interface DocumentProps {
 
 export const Document = ({ preloadedDocument }: DocumentProps) => {
 
-    
 
     return (
         <Room>
