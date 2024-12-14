@@ -16,8 +16,7 @@ export const TemplatesGallery = () => {
     const create = useMutation(api.documents.create);
     const [isCreating, setIsCreating] = useState(false);
 
-
-    const isCreating = false;
+    const onTemplateClick = () => {}
 
     return (
         <div className="bg-[#f1f3f4]">
