@@ -1,53 +1,52 @@
 "use client";
 import { useMutation } from 'convex/react';
 import { Id } from '../../convex/_generated/dataModel';
-import { AlertDialog, AlertDialogContent, AlertDialogHeader, AlertDialogTrigger, AlertDialogTitle, AlertDialogDescription, AlertDialogFooter, AlertDialogCancel, AlertDialogAction } from './ui/alert-dialog';
 import { api } from '../../convex/_generated/api';
 import { useState } from 'react';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
+import { Input } from './ui/input';
+import { Button } from './ui/button';
 
 
 
-interface RemoveDialogProps {
+interface RenameDialogProps {
     documentId: Id<"documents">;
     children: React.ReactNode;
 }
 
-export const RemoveDialog = ({ documentId, children }: RemoveDialogProps) => {
+export const RenameDialog = ({ documentId, children }: RenameDialogProps) => {
 
     const remove = useMutation(api.documents.removeById);
     const [isRemoving, setIsRemoving] = useState(false);
 
     return (
-        <AlertDialog>
-            <AlertDialogTrigger asChild>
+        <Dialog>
+            <DialogTrigger asChild>
                 {children}
-            </AlertDialogTrigger>
-            <AlertDialogContent onClick={(e) => e.stopPropagation()}>
-                <AlertDialogHeader>
-                    <AlertDialogTitle>
-                        Are you sure ?
-                    </AlertDialogTitle>
-                    <AlertDialogDescription>
-                        This action cannot be undone. This will permanantly delete your document.
-                    </AlertDialogDescription>
-                </AlertDialogHeader>
-                <AlertDialogFooter>
-                    <AlertDialogCancel onClick={(e) => e.stopPropagation()}>
-                        Cancel
-                    </AlertDialogCancel>
-                    <AlertDialogAction disabled={
-                        isRemoving
-                    }
-                        onClick={(e) => {
-                            e.stopPropagation();
-                            setIsRemoving(true);
-                            remove({ id: documentId })
-                                .finally(() => setIsRemoving(false))
-                        }}>
-                        Delete
-                    </AlertDialogAction>
-                </AlertDialogFooter>
-            </AlertDialogContent>
-        </AlertDialog>
+            </DialogTrigger>
+            <DialogContent>
+                <form action="">
+                    <DialogHeader>
+                        <DialogTitle>
+                            Rename Document
+                        </DialogTitle>
+                        <DialogDescription>
+                            Enter a new name for this document
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className='my-4'>
+                        <Input />
+                    </div>
+                    <DialogFooter>
+                        <Button>
+                            Cancel
+                        </Button>
+                        <Button>
+                            Save
+                        </Button>
+                    </DialogFooter>
+                </form>
+            </DialogContent>
+        </Dialog>
     );
 }
