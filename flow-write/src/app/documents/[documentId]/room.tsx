@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import {
     LiveblocksProvider,
     RoomProvider,
@@ -9,14 +9,23 @@ import {
 import { useParams } from "next/navigation";
 import { FullscreenLoader } from "@/components/fullscreen-loader";
 
+type User = { id: string; name: string; avatar: string }
+
+
 export function Room({ children }: { children: ReactNode }) {
 
     const params = useParams();
+    const [users, setUsers] = useState<User>([]);
+
+
 
     return (
         <LiveblocksProvider
             throttle={16}
             authEndpoint="/api/liveblocks-auth"
+            resolveUsers={() => []}
+            resolveMentionSuggestions={() => []}
+            resolveRoomsInfo={() => []}
         >
             <RoomProvider id={params.documentId as string}>
                 <ClientSideSuspense fallback={<FullscreenLoader label="Room loading..." />}>
