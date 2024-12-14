@@ -11,13 +11,16 @@ import { Button } from './ui/button';
 
 interface RenameDialogProps {
     documentId: Id<"documents">;
+    initialTitle: string;
     children: React.ReactNode;
 }
 
-export const RenameDialog = ({ documentId, children }: RenameDialogProps) => {
+export const RenameDialog = ({ documentId, initialTitle, children }: RenameDialogProps) => {
 
-    const rename = useMutation(api.documents.updateById);
-    const [isRenaming, setIsRenaming] = useState(false);
+    const update = useMutation(api.documents.updateById);
+    const [isUpdating, setIsUpdating] = useState(false);
+    const [title, setTitle] = useState(initialTitle);
+    const [open, setOpen] = useState(false);
 
     return (
         <Dialog>
