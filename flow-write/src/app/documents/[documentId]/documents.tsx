@@ -1,3 +1,5 @@
+"use client"
+
 import { Preloaded } from "convex/react";
 import { Editor } from "./editor";
 import { Navbar } from "./navbar";
