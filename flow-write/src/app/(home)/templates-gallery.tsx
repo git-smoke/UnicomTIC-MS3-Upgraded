@@ -8,7 +8,6 @@ import { useRouter } from "next/navigation";
 import { api } from "../../../convex/_generated/api";
 import { useState } from "react";
 import { title } from 'process';
-import { toast } from "sonner";
 
 
 
@@ -21,7 +20,6 @@ export const TemplatesGallery = () => {
     const onTemplateClick = (title: string, initialContent: string) => {
         setIsCreating(true);
         create({ title, initialContent })
-            .then(() => toast.success("Document Created Succesfully"))
             .then((documentId) => {
                 router.push(`/documents/${documentId}`)
             })

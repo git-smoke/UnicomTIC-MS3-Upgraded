@@ -95,9 +95,6 @@ export const Editor = () => {
       TaskItem.configure({ nested: true }),
       TaskList,
     ],
-    content: `
-        Hello !
-      `,
   });
 
   return (
