@@ -3,9 +3,11 @@ import { useMutation } from 'convex/react';
 import { Id } from '../../convex/_generated/dataModel';
 import { api } from '../../convex/_generated/api';
 import React, { useState } from 'react';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
+
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
+
 
 
 
@@ -28,11 +30,11 @@ export const RenameDialog = ({ documentId, initialTitle, children }: RenameDialo
         setIsUpdating(true);
 
         update({ id: documentId, title: title.trim() || "Untitled" })
+            .then(() => setOpen(false))
             .finally(() => {
                 setIsUpdating(false);
-                setOpen(false);
             })
-    }
+    };
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
@@ -40,7 +42,7 @@ export const RenameDialog = ({ documentId, initialTitle, children }: RenameDialo
                 {children}
             </DialogTrigger>
             <DialogContent>
-                <form action="">
+                <form onSubmit={onSubmit}>
                     <DialogHeader>
                         <DialogTitle>
                             Rename Document
@@ -50,13 +52,30 @@ export const RenameDialog = ({ documentId, initialTitle, children }: RenameDialo
                         </DialogDescription>
                     </DialogHeader>
                     <div className='my-4'>
-                        <Input />
+                        <Input
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            placeholder="Document name"
+                            onClick={(e) => e.stopPropagation()}
+                        />
                     </div>
                     <DialogFooter>
-                        <Button>
+                        <Button
+                            type='button'
+                            variant="ghost"
+                            disabled={isUpdating}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                setOpen(false)
+                            }}
+                        >
                             Cancel
                         </Button>
-                        <Button>
+                        <Button
+                            type='submit'
+                            disabled={isUpdating}
+                            onClick={(e) => e.stopPropagation()}
+                        >
                             Save
                         </Button>
                     </DialogFooter>
