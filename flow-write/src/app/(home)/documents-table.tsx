@@ -16,7 +16,33 @@ export const DocumentsTable = ({
 }: DocumentsTableProps) => {
     return (
         <div className="max-w-screen-xl mx-auto px-16 py-6 flex flex-col gap-5">
-            Documents Table
+            {documents === undefined ? (
+                <div className="flex justify-center items-center h-24">
+                    <LoaderIcon className="animate-spin text-muted-foreground size-5" />
+                </div>
+            ) : (
+                <div>
+                    <Table>
+                        <TableHeader>
+                            <TableRow className="hover:bg-transparent border-none">
+                                <TableHead>
+                                    Name
+                                </TableHead>
+                                <TableHead>
+                                    &nbsp;
+                                </TableHead>
+                                <TableHead>
+                                    Shared
+                                </TableHead>
+                                <TableHead>
+                                    Created at
+                                </TableHead>
+
+                            </TableRow>
+                        </TableHeader>
+                    </Table>
+                </div>
+            )}
         </div>
     )
 }
