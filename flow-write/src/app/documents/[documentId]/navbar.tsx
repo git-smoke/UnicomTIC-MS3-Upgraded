@@ -4,13 +4,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { DocumentInput } from "./document-input"
 import { Menubar, MenubarContent, MenubarItem, MenubarMenu, MenubarSeparator, MenubarShortcut, MenubarSub, MenubarSubContent, MenubarSubTrigger, MenubarTrigger } from "@/components/ui/menubar"
-import { BoldIcon, FileIcon, FileJsonIcon, FilePenIcon, FilePlusIcon, FileTextIcon, GlobeIcon, PrinterIcon, Redo2Icon, RemoveFormattingIcon, TextIcon, TrashIcon, Undo2Icon } from "lucide-react"
+import { FileIcon, FileJsonIcon, FilePenIcon, FilePlusIcon, FileTextIcon, GlobeIcon, PrinterIcon, Redo2Icon, RemoveFormattingIcon, TextIcon, TrashIcon, Undo2Icon } from "lucide-react"
 import { BsFilePdf, BsTypeBold, BsTypeItalic, BsTypeStrikethrough, BsTypeUnderline } from "react-icons/bs"
 import { useEditorStore } from "@/store/use-editor-store"
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs"
 import { Avatars } from "./avatars"
 import { Inbox } from "./inbox"
-import { Separator } from "@/components/ui/separator"
+
 
 export const Navbar = () => {
 
