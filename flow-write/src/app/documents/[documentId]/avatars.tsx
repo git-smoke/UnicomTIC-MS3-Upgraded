@@ -6,7 +6,13 @@ import { useOthers, useSelf } from "@liveblocks/react/suspense";
 
 const AVATAR_SIZE = 36;
 
-
+export const Avatars = () => {
+    return (
+        <ClientSideSuspense fallback={null}>
+            <AvatarStack />
+        </ClientSideSuspense>
+    )
+}
 
 const AvatarStack = () => {
     const users = useOthers();
