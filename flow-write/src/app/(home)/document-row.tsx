@@ -11,7 +11,7 @@ interface DocumentRowProps {
 
 export const DocumentRow = ({ document }: DocumentRowProps) => {
 
-    const onNewTabClick = (id: string){
+    const onNewTabClick = (id: string) => {
         window.open(`/documents/${id}`, "_blank");
     }
 
