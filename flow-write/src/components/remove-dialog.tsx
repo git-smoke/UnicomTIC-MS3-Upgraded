@@ -1,5 +1,5 @@
 import { Id } from '../../convex/_generated/dataModel';
-import { DocumentInput } from '../app/documents/[documentId]/document-input';
+import { AlertDialog } from './ui/alert-dialog';
 "use client";
 
 
@@ -8,4 +8,8 @@ interface RemoveDialogProps {
     children: React.ReactNode;
 }
 
-export const RemoveDialog = ({ documentId, children }: RemoveDialogProps) => { }
+export const RemoveDialog = ({ documentId, children }: RemoveDialogProps) => {
+    return (
+        <AlertDialog />
+    );
+}
