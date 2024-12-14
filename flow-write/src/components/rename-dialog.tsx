@@ -22,8 +22,11 @@ export const RenameDialog = ({ documentId, initialTitle, children }: RenameDialo
     const [title, setTitle] = useState(initialTitle);
     const [open, setOpen] = useState(false);
 
+
+    
+
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 {children}
             </DialogTrigger>
