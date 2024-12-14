@@ -2,7 +2,7 @@
 import { useMutation } from 'convex/react';
 import { Id } from '../../convex/_generated/dataModel';
 import { api } from '../../convex/_generated/api';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
@@ -23,7 +23,16 @@ export const RenameDialog = ({ documentId, initialTitle, children }: RenameDialo
     const [open, setOpen] = useState(false);
 
 
-    
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setIsUpdating(true);
+
+        update({ id: documentId, title: title.trim() || "Untitled" })
+            .finally(() => {
+                setIsUpdating(false);
+                setOpen(false);
+            })
+    }
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
