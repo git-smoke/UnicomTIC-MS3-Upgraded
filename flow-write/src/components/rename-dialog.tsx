@@ -16,8 +16,8 @@ interface RenameDialogProps {
 
 export const RenameDialog = ({ documentId, children }: RenameDialogProps) => {
 
-    const remove = useMutation(api.documents.removeById);
-    const [isRemoving, setIsRemoving] = useState(false);
+    const rename = useMutation(api.documents.updateById);
+    const [isRenaming, setIsRenaming] = useState(false);
 
     return (
         <Dialog>
