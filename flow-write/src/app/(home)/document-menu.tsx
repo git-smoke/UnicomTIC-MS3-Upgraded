@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
-import { MoreVertical } from "lucide-react"
+import { ExternalLinkIcon, MoreVertical } from "lucide-react"
 import { Id } from "../../../convex/_generated/dataModel"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 interface DocumentMenuProps {
     documentId: Id<"documents">;
@@ -8,10 +9,23 @@ interface DocumentMenuProps {
     onNewTab: (id: Id<"documents">) => void;
 }
 
-export const DocumentMenu = () => {
+export const DocumentMenu = ({ documentId, title, onNewTab }: DocumentMenuProps) => {
     return (
-        <Button variant="ghost" size="icon" className="rounded-full">
-            <MoreVertical className="size-4" />
-        </Button>
+        <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="rounded-full">
+                    <MoreVertical className="size-4" />
+                </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+                <DropdownMenuItem
+                    onClick={() => onNewTab(documentId)}
+                >
+                    <ExternalLinkIcon className="size-4 mr-2" />
+                    Open in a new Tab
+                </DropdownMenuItem>
+            </DropdownMenuContent>
+        </DropdownMenu>
+
     )
 }
