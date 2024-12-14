@@ -3,6 +3,7 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { templates } from "@/constants/templates";
 import { cn } from "@/lib/utils"
+import { useMutation } from "convex/react";
 import { useRouter } from "next/navigation";
 
 
@@ -10,6 +11,8 @@ import { useRouter } from "next/navigation";
 export const TemplatesGallery = () => {
 
     const router = useRouter();
+    const create = useMutation();
+
 
     const isCreating = false;
 
