@@ -5,4 +5,10 @@ interface DocumentRowProps {
     document: Doc<"documents">;
 }
 
-export const DocumentRow = () => {}
+export const DocumentRow = ({ document }: DocumentRowProps) => {
+    return (
+        <TableRow>
+
+        </TableRow>
+    );
+}
