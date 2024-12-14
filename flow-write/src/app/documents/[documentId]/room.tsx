@@ -7,7 +7,7 @@ import {
     ClientSideSuspense,
 } from "@liveblocks/react/suspense";
 import { useParams } from "next/navigation";
-import { DocumentInput } from './document-input';
+
 
 export function Room({ children }: { children: ReactNode }) {
 
