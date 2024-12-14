@@ -26,4 +26,4 @@ export const Document = async ({ preloadedDocument }: DocumentProps) => {
     );
 };
 
-export default DocumentPage;
+export default Document;
