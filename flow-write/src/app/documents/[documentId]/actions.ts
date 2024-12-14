@@ -1,7 +1,10 @@
 "use server"
 
-import { auth, clerkClient } from "@clerk/nextjs/server"
+import { auth, clerkClient } from "@clerk/nextjs/server";
+import { ConvexHttpClient } from "convex/browser";
 
+
+const convex = new ConvexHttpClient(process.env.NEXT_PUBILC_CONVEX_URL!);
 
 export async function getUsers() {
     const { sessionClaims } = await auth();
