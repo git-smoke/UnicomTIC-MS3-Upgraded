@@ -37,7 +37,7 @@ const AvatarStack = () => {
                     })}
                 </div>
             </div>
-            <Separator />
+            <Separator orientation="vertical" className="h-6" />
         </>
     )
 }

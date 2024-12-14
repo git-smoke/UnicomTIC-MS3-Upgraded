@@ -236,6 +236,7 @@ export const Navbar = () => {
                 </div>
             </div>
             <div className="flex gap-3 items-center pl-6">
+                <Avatars />
                 <OrganizationSwitcher
                     afterCreateOrganizationUrl="/"
                     afterLeaveOrganizationUrl="/"
