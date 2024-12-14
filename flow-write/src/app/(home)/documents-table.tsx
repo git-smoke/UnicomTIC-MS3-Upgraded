@@ -40,6 +40,26 @@ export const DocumentsTable = ({
 
                             </TableRow>
                         </TableHeader>
+                        {documents.length === 0 ? (
+                            <TableBody>
+                                <TableRow className="hover:bg-transparent">
+                                    <TableCell colSpan={4} className="h-24 text-center text-muted-foreground">
+                                        No documents found
+                                    </TableCell>
+                                </TableRow>
+                            </TableBody>
+                        ) : (
+                            <TableBody>
+                                {
+                                    documents.map((document) => (
+                                        <DocumentRow key={document._id}
+                                            document={document}
+                                        />
+                                    ))
+                                }
+                            </TableBody>
+
+                        )}
                     </Table>
                 </div>
             )}
