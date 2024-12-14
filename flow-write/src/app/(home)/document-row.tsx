@@ -4,6 +4,7 @@ import { SiGoogledocs } from "react-icons/si";
 import { BuildingIcon, CircleUserIcon, icons, MoreVertical } from "lucide-react";
 import { format } from "date-fns";
 import { Button } from "@/components/ui/button";
+import { DocumentMenu } from "./document-menu";
 interface DocumentRowProps {
     document: Doc<"documents">;
 }
@@ -27,9 +28,7 @@ export const DocumentRow = ({ document }: DocumentRowProps) => {
                 {format(new Date(document._creationTime), "MMM dd, yyyy")}
             </TableCell>
             <TableCell className="flex justify-end ">
-                <Button variant="ghost" size="icon" className="rounded-full">
-                    <MoreVertical className="size-4" />
-                </Button>
+                <DocumentMenu />
             </TableCell>
         </TableRow>
     );
