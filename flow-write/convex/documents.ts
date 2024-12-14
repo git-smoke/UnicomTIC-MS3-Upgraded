@@ -48,6 +48,12 @@ export const get = query({
                 .paginate(paginationOpts)
         }
 
+        if (organizationId) {
+            return await ctx.db
+                .query("documents")
+                .withIndex("by_oraganization_id", (q) => q.eq("organizationId", organizationId)).paginate(paginationOpts)
+        }
+
         return await ctx.db
             .query("documents")
             .withIndex("by_owner_id", (q) => q.eq("ownerId", user.subject))
