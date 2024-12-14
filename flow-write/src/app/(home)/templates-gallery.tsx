@@ -5,13 +5,16 @@ import { templates } from "@/constants/templates";
 import { cn } from "@/lib/utils"
 import { useMutation } from "convex/react";
 import { useRouter } from "next/navigation";
+import { api } from "../../../convex/_generated/api";
+import { useState } from "react";
 
 
 
 export const TemplatesGallery = () => {
 
     const router = useRouter();
-    const create = useMutation();
+    const create = useMutation(api.documents.create);
+    const [isCreating, setIsCreating] = useState(false);
 
 
     const isCreating = false;
