@@ -3,3 +3,6 @@ interface FullscreenLoaderProps {
     className?: string;
 }
 
+export const FullscreenLoader = ({ label, className }: FullscreenLoaderProps) => {
+
+}
