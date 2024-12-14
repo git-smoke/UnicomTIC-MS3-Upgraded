@@ -6,7 +6,14 @@ import { useOthers, useSelf } from "@liveblocks/react/suspense";
 const AVATAR_SIZE = 36;
 
 const AvatarStack = () => {
-    
+    const users = useOthers();
+    const currentUser = useSelf();
+
+    if (users.length === 0) return null;
+    return(
+        <>
+        </>
+    )
 }
 
 interface AvatarProps {
