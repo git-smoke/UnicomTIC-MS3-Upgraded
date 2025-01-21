@@ -22,7 +22,7 @@ const ErrorPage = ({
                 </div>
                 <div className="space-y-2">
                     <h2 className="text-xl font-semibold text-gray-900">
-                        Oops! Something Went Wrong
+                        Oops! Error Occured
                     </h2>
                     <p>
                         {error.message}
